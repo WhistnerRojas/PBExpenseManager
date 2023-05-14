@@ -6,23 +6,16 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
+    <div class="col-md-10">
+        <div class="card pieChart">
+            <div class="card-header">My Expenses</div>
 
             <div class="card-body">
 
-                <h1>{{ $chart1->options['chart_title'] }}</h1>
-                {!! $chart1->renderHtml() !!}
 
             </div>
 
         </div>
     </div>
 </div>
-@endsection
-
-@section('javascript')
-{!! $chart1->renderChartJsLibrary() !!}
-{!! $chart1->renderJs() !!}
 @endsection

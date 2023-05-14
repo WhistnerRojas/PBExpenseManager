@@ -23,8 +23,8 @@
                 <nav class="navbar navbar-expand-md navbar-light shadow-sm align-items-start dashbar">
                     <div class="container text-light flex-column">
                         <div class="profilePic mt-5 mb-3"></div>
-                        <a class="nav-link text-light mb-5" href="#">
-                            {{ Auth::user()->name }}
+                        <a class="nav-link text-light mb-5 text-center" href="{{route('viewEditUsers')}}">
+                            {{ Auth::user()->name}} ( {{Auth::user()->role}} ) <br/> Update Password
                         </a>
                         <h3 class="dash"><a href="{{route('home')}}">{{ __('Dashboard') }}</a></h3>
                         <button class="navbar-toggler align-self-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -49,7 +49,7 @@
                                         @if( Auth::user()->role === 'Administrator')
                                             <li><a href="{{ route('viewExpenseCatalog') }}">Expense Category</a></li>
                                         @endif
-                                        <li>Expenses</li>
+                                        <li><a href="{{ route('viewExpenses') }}">Expenses</a></li>
                                     </ul>
                                 </li>
                             </ul>

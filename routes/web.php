@@ -6,6 +6,7 @@ use App\Http\Controllers\pages\UserRoles;
 use App\Http\Controllers\pages\Users;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\pages\ExpenseCatalog;
+use App\Http\Controllers\pages\Expenses;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::middleware('auth')->group(function () {
 
     //users route
     Route::get('/users', [Users::class,'viewUser'])->name('viewUsers');
+    Route::get('/user/edit', [Users::class,'viewEditUser'])->name('viewEditUsers');
+    Route::post('/user/update-pass', [Users::class,'updatePass'])->name('user.updatePass');
     Route::post('/user/add', [Users::class, 'addUsers'])->name('user.addUsers');
     Route::post('/user/update-delete-user',[Users::class, 'updateDeleteUser'])->name('user.updateDeleteUser');
 
@@ -41,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/expense-catalog/update-delete-user',[ExpenseCatalog::class, 'updateDeleteCategory'])->name('expenses.updateDeleteCategory');
 
     //expenses route
-    
+    Route::get('/expenses', [Expenses::class,'viewExpenses'])->name('viewExpenses');
+    Route::post('/expenses/add', [Expenses::class, 'addExpenses'])->name('expenses.addExpenses');
+    Route::post('/expenses/update-delete-user',[Expenses::class, 'updateDeleteExpenses'])->name('expenses.updateDeleteExpenses');
 
 });

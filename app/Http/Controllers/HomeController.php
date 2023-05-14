@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\charts\laravelCharts;
 use Illuminate\Http\Request;
-use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use App\Http\Controllers\pages\Expenses;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,9 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $chart = new laravelCharts();
-        $chartData = $chart->chartData();
         
-        return view('home')->with('chart1', $chartData);
+        $chartData = $this->getExpenses();
+        
+        return view('home', ['viewExpenses' => $chartData]);
+    }
+
+    public function getExpenses(){
+        $expenses= new Expenses();
+        $userId = Auth::id();
+        // Call a method from the OtherClass
+        $result = $expenses->getExpenses($userId);
+
+        // Use the result as needed
+        return $result;
     }
 }

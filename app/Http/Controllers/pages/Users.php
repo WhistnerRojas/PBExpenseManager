@@ -4,7 +4,8 @@ namespace App\Http\Controllers\pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Roles;
@@ -105,7 +106,6 @@ class Users extends Controller
         } else {
             return 'User update failed.';
         }
-
     }
 
     public function deleteUser($request){
@@ -125,5 +125,46 @@ class Users extends Controller
         }else{
             return false;
         }
+    }
+
+    //passwordUpdate
+    public function viewEditUser(){
+        return view('editUser');
+    }
+
+    public function updatePass(Request $request){
+        
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        // The validation passed, continue with changing the password logic
+    
+        // Retrieve the authenticated user ID
+        $userId = auth()->id();
+    
+        // Find the user by ID
+        $user = User::find($userId);
+    
+        // Check if the user exists
+        if (!$user) {
+            return redirect()->route('viewEditUsers')->withErrors(['current_password' => 'User not found.'])->withInput();
+        }
+    
+        // Check if the current password matches the user's password
+        if (!Hash::check($request->input('current_password'), $user->password)) {
+            return redirect()->route('viewEditUsers')->withErrors(['current_password' => 'The current password is incorrect.'])->withInput();
+        }
+    
+        // Set the new password for the user
+        $user->password = bcrypt($request->input('new_password'));
+        $user->save();
+    
+        return redirect()->route('viewEditUsers')->with('msg', 'Password changed successfully.');
     }
 }
