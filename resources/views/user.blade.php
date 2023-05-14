@@ -1,5 +1,12 @@
 @extends('layouts.dashboard')
 
+@if(auth()->user()->role !== 'Administrator')
+    @php
+        header('Location: /');
+        exit;
+    @endphp
+@endif
+
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-11">
@@ -24,8 +31,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($viewUsers as $User)
-                            <tr data-bs-toggle="modal" data-bs-target="#updateRoles{{ $User->id }}" style="cursor:pointer;">
+                        @foreach ($viewUsers['users'] as $User)
+                            <tr data-bs-toggle="modal" data-bs-target="#updateUser{{ $User->id }}" style="cursor:pointer;">
                                 <td>{{ $User->name }}</td>
                                 <td>{{ $User->email }}</td>
                                 <td>{{ $User->password }}</td>
@@ -44,7 +51,7 @@
 </div>
 <!-- Modal -->
 <!-- Add User -->
-@include('modal.addUser')
+@include('modal.addUser', ['viewRoles' => $viewUsers])
 <!-- Update / Delete User -->
 @include('modal.updateUser', ['viewRoles' => $viewUsers])
 @endsection

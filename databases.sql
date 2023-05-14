@@ -11,15 +11,15 @@
 --     created_at DATE DEFAULT (CURDATE())
 -- );
 
-CREATE TABLE IF NOT EXISTS `users`(
-	id INT AUTO_INCREMENT PRIMARY KEY Not Null,
-    name varchar(100),
-    email varchar(100),
-    password varchar(250),
-    role varchar(100),
-    updated_at timestamp,
-    created_at DATE DEFAULT (CURDATE())
-);
+-- CREATE TABLE IF NOT EXISTS `users`(
+-- 	id INT AUTO_INCREMENT PRIMARY KEY Not Null,
+--     name varchar(100),
+--     email varchar(100),
+--     password varchar(250),
+--     role varchar(100),
+--     updated_at timestamp,
+--     created_at DATE DEFAULT (CURDATE())
+-- );
 
 -- ALTER TABLE expenses change users_id id INT;
 -- ALTER TABLE users CHANGE users_roleId role varchar(45);

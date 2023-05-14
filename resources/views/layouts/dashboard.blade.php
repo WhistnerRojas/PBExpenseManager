@@ -34,17 +34,21 @@
                         <div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav me-auto my-2 my-md-3 flex-column fs-5">
-                                <li class="my-2 my-md-3">
-                                    User Management <br>
-                                    <ul class="my-2">
-                                        <li><a href="{{ route('viewRoles') }}">Roles</a></li>
-                                        <li><a href="{{ route('viewUsers') }}">Users</a></li>
-                                    </ul>
-                                </li>
+                                @if( Auth::user()->role === 'Administrator')
+                                    <li class="my-2 my-md-3">
+                                        User Management <br>
+                                        <ul class="my-2">
+                                            <li><a href="{{ route('viewRoles') }}">Roles</a></li>
+                                            <li><a href="{{ route('viewUsers') }}">Users</a></li>
+                                        </ul>
+                                    </li>
+                                @endif
                                 <li class="my-2 my-md-3">
                                     Expense Management <br>
                                     <ul class="my-2">
-                                        <li>Expense Category</li>
+                                        @if( Auth::user()->role === 'Administrator')
+                                            <li><a href="{{ route('viewExpenseCatalog') }}">Expense Category</a></li>
+                                        @endif
                                         <li>Expenses</li>
                                     </ul>
                                 </li>

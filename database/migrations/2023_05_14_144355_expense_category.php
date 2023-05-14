@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table){
-            $table->integer('roles_id')->nullable(false)->autoIncrement();
-            $table->string('display_name')->nullable();
+        Schema::create('expenseCategory', function (Blueprint $table){
+            $table->integer('category_id')->nullable(false)->autoIncrement();
+            $table->string('category_name')->nullable();
             $table->string('description')->nullable();
             $table->date('created_at')->nullable();
-            // Add more columns as needed
-            //define primary key
-            $table->primary('roles_id');
+            // Define primary key
+            $table->primary('category_id');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('expenseCategory');
     }
 };
