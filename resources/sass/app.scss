@@ -1,0 +1,59 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.dashbar{
+    background-color: rgb(16, 78, 92) !important;
+    height: 100vh;
+}
+
+.profilePic{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(203, 203, 203);
+    border-radius: 50%;
+}
+
+ul.navbar-nav li{
+    list-style: none;
+}
+
+ul.navbar-nav li > a, .dash > a{
+    text-decoration: none;
+    color: snow;
+}
+
+ul.navbar-nav li > a:hover, .dash>a:hover{
+    text-decoration: none;
+    color: rgb(156, 248, 255);
+}
+
+.welcome{
+    box-shadow: 0 4px 6px -6px #222;
+}
+
+@media screen and (max-width: 767px) {
+    .dashbar{
+        height: auto;
+    }
+    .profilePic{
+        display: none;
+    }
+    .tableOverflow{
+        overflow-x: scroll;
+    }
+}
+@media screen and (max-width: 1578px) {
+    .tableOverflow{
+        overflow-x: scroll;
+    }
+}
+
+// *{
+//     border-color: blueviolet !important;
+// }
