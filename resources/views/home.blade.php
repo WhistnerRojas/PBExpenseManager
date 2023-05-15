@@ -27,7 +27,7 @@
                 <script src="https://code.highcharts.com/highcharts.js"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
-                        // Data for the chart (replace with your own data)
+                        // Data for the chart
                         var data = [<?php 
                             foreach($viewExpenses['expenses'] as $expeses){
                                 echo "['$expeses->expense_category', $expeses->amount],";
