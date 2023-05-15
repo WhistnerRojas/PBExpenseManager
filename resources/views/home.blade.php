@@ -62,10 +62,10 @@
                                 type: 'pie'
                             },
                             title: {
-                                text: 'Pie Chart'
+                                text: 'My Expenses'
                             },
                             series: [{
-                                name: 'Categories',
+                                name: 'Amount &#8369;',
                                 data: data
                             }]
                         });
