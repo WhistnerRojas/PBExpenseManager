@@ -13,12 +13,30 @@
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col">
-                        <?php
-                            foreach($viewExpenses['expenses'] as $expeses){
-                                echo "<h5>$expeses->expense_category = &#8369;$expeses->amount</h5>";
-                            }
-                        ?>
+                    <div class="col-4">
+
+                        <table class="table table-striped table-hover">
+                            @if(session('msg'))
+                                <div class="alert alert-success">
+                                    {{ session('msg') }}
+                                </div>
+                            @endif
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($viewExpenses['expenses'] as $expeses)
+                                    <tr>
+                                        <td>{{ $expeses->expense_category }}</td>
+                                        <td>&#8369;{{ $expeses->amount }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        
                     </div>
                     <div class="col">
                         <div id="chartContainer"></div>
