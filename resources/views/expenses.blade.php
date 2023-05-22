@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="text-end">
-            <input type="submit" value="Add Category" class="btn btn-outline-success my-4" data-bs-toggle="modal" data-bs-target="#addExpenses"/>
+            <input type="submit" value="Add Expenses" class="btn btn-outline-success my-4" data-bs-toggle="modal" data-bs-target="#addExpenses"/>
         </div>
     </div>
 </div>
