@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table){
-            $table->integer('roles_id')->nullable(false)->autoIncrement();
+            $table->id('roles_id');
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
             $table->date('created_at')->nullable();
             // Add more columns as needed
-            //define primary key
-            $table->primary('roles_id');
+            //define primary keyclear
         });
     }
 

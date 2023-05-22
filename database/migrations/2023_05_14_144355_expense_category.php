@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('expenseCategory', function (Blueprint $table){
-            $table->integer('category_id')->nullable(false)->autoIncrement();
+            $table->id('category_id');
             $table->string('category_name')->nullable();
             $table->string('description')->nullable();
             $table->date('created_at')->nullable();
             // Define primary key
-            $table->primary('category_id');
         });
     }
 

@@ -47,7 +47,7 @@
 </div>
 <!-- Modal -->
 <!-- Add Roles -->
-@include('modal.addRoles')
+@include('modal.addRoles', ['viewRoles' => $viewRoles])
 <!-- Update / Delete Roles -->
 @include('modal.updateRoles', ['viewRoles' => $viewRoles])
 @endsection

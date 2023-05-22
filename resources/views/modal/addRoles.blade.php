@@ -8,7 +8,6 @@
 
                     <form method="POST" action="{{route('roles.addRoles')}}">
                         @csrf
-                        <input type="text" name="id" value="{{ $role->roles_id }}" class="d-none">
 
                         <div class="md-3">
                             <label for="displayName" class="form-label">Display Name</label>

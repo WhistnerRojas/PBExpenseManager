@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('expenses', function (Blueprint $table){
-            $table->integer('expense_id')->nullable(false)->autoIncrement();
+            $table->id('expense_id');
             $table->string('expense_category')->nullable();
             $table->integer('amount')->nullable();
             $table->date('entry_date')->nullable();
             $table->date('created_at')->nullable();
             $table->unsignedBigInteger('user_id');
-            // Define primary key
-            $table->primary('expenses_id');
             // Define the foreign key constraint
             $table->foreign('user_id')->references('id')->on('users');
         });

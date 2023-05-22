@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <h6 class="text-end">User Management > <span class="text-primary">Expense Category</span></h6>
+        <h6 class="text-end">User Management > <span class="text-primary">Expenses</span></h6>
         <div class="card">
             <div class="card-header">Expense Category</div>
             <div class="card-body tableOverflow">

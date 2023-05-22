@@ -36,7 +36,7 @@ class UserRoles extends Controller
         $roles->created_at = now()->format('Y-m-d');
         $roles->save();
 
-        return redirect()->route('viewRoles')->with('msg', 'Added new rule');
+        return redirect()->route('viewRoles')->with('msg', 'Added new role');
     }
 
     public function updateDeleteRole(Request $req){
